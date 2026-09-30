@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор НДФЛ — ФНС</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">ФНС России</div>
+        <nav class="nav">
+            <ul class="nav-list">
+                <li><a href="index.html">Главная</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Сервисы ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="calculator.html">Калькулятор НДФЛ</a></li>
+                        <li><a href="#">Личный кабинет</a></li>
+                        <li><a href="#">Проверка ИНН</a></li>
+                    </ul>
+                </li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container content-fade">
+        <div class="calc-card">
+            <h2>Калькулятор налога на доходы (НДФЛ)</h2>
+            <p class="calc-desc">Введите общую сумму вашего дохода и сумму налоговых вычетов для расчета.</p>
+
+            <form id="taxForm" class="tax-form">
+                <div class="form-group">
+                    <label for="income">Ваш совокупный доход за год (руб.):</label>
+                    <input type="number" id="income" placeholder="Например: 600000" required min="0">
+                </div>
+
+                <div class="form-group">
+                    <label for="deduction">Сумма налоговых вычетов (руб.):</label>
+                    <input type="number" id="deduction" placeholder="Например: 1400" required min="0" value="0">
+                </div>
+
+                <div class="form-group">
+                    <label for="taxRate">Ставка налога:</label>
+                    <select id="taxRate">
+                        <option value="13">13% (Стандартная ставка)</option>
+                        <option value="15">15% (Доход свыше 5 млн руб.)</option>
+                        <option value="35">35% (Выигрыши и призы)</option>
+                    </select>
+                </div>
+
+                <button type="submit" id="calcBtn" class="btn-calc">Рассчитать сумму</button>
+            </form>
+
+            <!-- Блок с результатами, плавно появляющийся через JS -->
+            <div id="resultBlock" class="result-block hidden">
+                <h3>Результаты расчета:</h3>
+                <div class="result-row">Налоговая база: <span id="taxBase">0</span> руб.</div>
+                <div class="result-row total">Сумма к уплате (НДФЛ): <span id="taxAmount">0</span> руб.</div>
+                <div class="result-row clean">Чистый доход после налогов: <span id="cleanIncome">0</span> руб.</div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Федеральная налоговая служба. Все права защищены.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
